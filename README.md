@@ -1,1 +1,0 @@
-# weeraya.github.io
