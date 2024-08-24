@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Prob2</title>
+    <script>
+        function readInput() {
+            let numArr = [];
+            while (true) {
+                let input = Number(prompt('Enter an integer (a negative integer to quit):'))
+                if (input >= 0 && Number.isInteger(input)) {
+                    numArr.push(input);
+                } else if (input < 0 && Number.isInteger(input)) {
+                    break;
+                }
+            }
+            return numArr;
+        }
+        let list = readInput();
+
+        function displayStats() {
+            let avg = list.length > 0 ? (list.reduce((a, b) => a + b, 0) / list.length).toFixed(2) : 0;
+            let min = list.length > 0 ? Math.min(...list) : 0;
+            let max = list.length > 0 ? Math.max(...list) : 0;
+
+            let message = list.length > 0
+                ? `For the list ${list}, the average is ${avg}, the minimum is ${min}, and the maximum is ${max}.`
+                : "For the list is empty, the average is 0, the minimum is 0, and the maximum is 0.";
+
+            alert(message);
+        }
+        displayStats(list);
+
+    </script>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <h1 style="text-align: center;">Statistics Calculator!</h1>
+    <main style="margin: 1em;">
+        <div>
+            <h2>Write the web app to prompt accepting for positive integers until the user enters a negative integer
+            </h2>
+            <ul>
+                <li>If the entered text is not a positive integer number, then the web app will keep asking for a number
+                    until the valid positive integer is entered</li>
+                <li>If the entered text is a negative integer, then the web app will show the statistics (average, min,
+                    max) of all entered positive integers</li>
+                <li>If the user enters a negative integer as the first integer, the average, the min, and the max is 0
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>Note:</h2>
+            <ul style="list-style-type:decimal;">
+                <li>Implement these two functions</li>
+                <li>Use ternary operator (conditional operator ?) to handle in both cases which the list is empty and is
+                    not empty</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>
